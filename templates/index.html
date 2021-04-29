@@ -1,0 +1,41 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+
+  <title>ML Deployment</title>
+  <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}">
+</head>
+  
+
+{%extends 'base.html'%}
+
+<body bgcolor="#b0e0e6">
+	
+ <div class="nlp_frontend">
+  <h1 align="center" style="margin:10 auto">Predict Sentiments for Hotels</h1>
+  <br>
+
+  {% block content %}
+  <br>
+  <br>
+  <center><h2>This site is an analyzer that will allow you to check whether the written review is positive or negative.
+  </center>
+  <br><br><br>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for("connection")}}" method="post">
+   
+    <input class="w3-input w3-border" type="text" align="middle" style="width:812px;height:100px;display:block;text-align:center;margin:10 auto" id="text1" name="t1" placeholder="Enter the Customer Review">
+    <button type="submit" class="btn btn-success" style="width:150px;height:40px;display:block;margin:10 auto">Submit</button>
+   
+    <br>
+   <br>
+   <label for="text1" style="display:block;width:812px;text-align:center;margin: auto"><h2>RESULTS:"{{ prediction_text }}"</h2></label>
+   <br>
+   <br>
+  <!-- Example #5 - inline svg (provided by FontAwesome) -->
+
+
+  {% endblock %}
+ </div>
+</body>
+</html>
